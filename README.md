@@ -10,3 +10,20 @@ snow - whatsapp bot
 
 <br /><br />
 ### Features
+
+<br /><br />
+
+## to do:
+general: 
+- reminder
+- birthday
+- translate
+
+ai: 
+- generate photo
+- chat bot
+
+admin:
+- mute
+- unmute
+- get logs
