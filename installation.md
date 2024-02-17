@@ -3,6 +3,7 @@
 ```
 npm i whatsapp-web.js
 npm i qrcode-terminal
-npm i sqlite3
 
+npm i sqlite3
+sqlstring
 ```

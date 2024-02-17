@@ -1,8 +1,7 @@
 const { Client } = require('whatsapp-web.js');
-const { Logger } = require("../logger.js")
+const { Logger } = require("../logger");
 const { DBHandler } = require("./db_handler.js")
 const path = require("path")
-
 
 const db_path = path.resolve(__dirname, '../db/db.db');
 
@@ -36,7 +35,7 @@ class Handler {
 
         const allowed = await this.db_handler.is_contact_allowed(contact.number)
         if (allowed) {
-            this.logger.info(`message from: ${contact.number} accepted`)
+            this.logger.info(`message from: ${contact.number} - ${message.body}`)
         } else {
             this.logger.error(`message from: ${contact.number} denied`)
         }
