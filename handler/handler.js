@@ -1,6 +1,7 @@
 const { Client } = require('whatsapp-web.js');
 const { Logger } = require("../logger");
 const { DBHandler } = require("./db_handler.js")
+const messages = require("../whatsapp/messages.js")
 const path = require("path")
 
 const db_path = path.resolve(__dirname, '../db/db.db');
@@ -37,7 +38,8 @@ class Handler {
         if (allowed) {
             this.logger.info(`message from: ${contact.number} - ${message.body}`)
         } else {
-            this.logger.error(`message from: ${contact.number} denied`)
+            this.logger.warn(`message from: ${contact.number} denied`)
+            this.whatsapp.send_message(message.from, messages.UNREGISTER_USER_MESSAGE)
         }
 
 

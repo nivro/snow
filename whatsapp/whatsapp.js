@@ -26,6 +26,15 @@ class Whatsapp {
         this.client.initialize()
 
     }
+
+    /**
+     * sends a given message to given phone number
+     *  @param {string } chatid
+     *  @param {string } message
+    */
+    send_message(chatid, message) {
+        this.client.sendMessage(chatid, message);
+    }
 }
 
 module.exports = { Whatsapp }

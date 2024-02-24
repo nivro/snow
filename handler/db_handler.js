@@ -7,7 +7,7 @@ class DBHandler {
     }
 
     /**
-     * gets a phone number and checks if its allowed to use the bot
+     * gets a phone number and checks if it allowed to use the bot
      * @param {int} number : the phone number
      * @returns is the number allowed
      */
