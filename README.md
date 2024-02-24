@@ -24,6 +24,8 @@ ai:
 - chat bot
 
 admin:
-- mute
+- mute , mute for time
 - unmute
 - get logs
+- add number
+- remove number
