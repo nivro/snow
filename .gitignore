@@ -1,5 +1,5 @@
 .wwebjs_cache/ 
 auth-generated 
-*.log 
+logs/
 /db/
 !*/db/
