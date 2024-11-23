@@ -1,3 +1,5 @@
 .wwebjs_cache/ 
 auth-generated 
 *.log 
+*.db
+db/
