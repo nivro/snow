@@ -5,16 +5,18 @@ create user <number>\n
 delete user <number>\n
 add admin <number>\n
 remove admin <number>\n
+list users\n
 help\n
 `
     constructor(authentication) {
         super()
         this.authentication = authentication
         this.commands = {
-            'create user ': (phoneNumber) => this.createUser(phoneNumber),
+            'create user': (phoneNumber) => this.createUser(phoneNumber),
             'delete user': (phoneNumber) => this.deleteUser(phoneNumber),
             'add admin': (phoneNumber) => this.addAdmin(phoneNumber),
-            'remove admin': (phoneNumber) => this.removeAdmin(phoneNumber)
+            'remove admin': (phoneNumber) => this.removeAdmin(phoneNumber),
+            'list users': () => this.listUsers(),
         };
     }
 
@@ -57,6 +59,10 @@ help\n
         this.logger.info(`removing admin: ${phoneNumber}`)
         this.authentication.setAdminLevel(phoneNumber, 0)
         return 'admin removed'
+    }
+    async listUsers() {
+        var users = this.authentication.listUsers()
+        return users.map(item => item.number).join('\n')
     }
 }
 

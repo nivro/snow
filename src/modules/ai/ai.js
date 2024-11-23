@@ -17,21 +17,26 @@ image <request>`
     }
 
     async generateImage(request) {
-        this.logger.info(`sending image request to ai with prompt: ${request}`)
-        const response = await this.ai.images.generate({
-            model: this.config.image.model,
-            prompt: request,
-            n: 1,
-            size: this.config.image.size,
-        });
-        this.logger.info('got response for openai image request')
-        const url = response.data[0].url
-        const prompt = response.data[0].revised_prompt
+        try {
+            this.logger.info(`sending image request to ai with prompt: ${request}`)
+            const response = await this.ai.images.generate({
+                model: this.config.image.model,
+                prompt: request,
+                n: 1,
+                size: this.config.image.size,
+            });
+            const url = response.data[0].url
+            this.logger.info(`image response url: ${url}`)
+            const image = await fetch(url);
+            const buffer = await image.buffer();
+            const media = new MessageMedia('image/png', buffer.toString('base64'), 'generated-image.png');
+            return media
 
-        const image = await fetch(url);
-        const buffer = await image.buffer();
-        const media = new MessageMedia('image/png', buffer.toString('base64'), 'generated-image.png');
-        return media
+        } catch (error) {
+            this.logger.error(`error cought in generate image ${error}`)
+            return "error appeared when trying to generate image"
+        }
+
     }
 
 

@@ -27,7 +27,7 @@ class Router {
     routeMessage(message) {
         var command = message.body.split(' ')[0]
         if (!(command in this.modules)) {
-            return `Unknown command!\navailable commands:\n${Object.keys(this.modules).join("\n")}`
+            return `available commands:\n${Object.keys(this.modules).join("\n")}`
         }
         return this.modules[command].handle(message)
     }

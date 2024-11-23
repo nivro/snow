@@ -28,6 +28,9 @@ class Authentication {
     setAdminLevel(phoneNumber, isAdmin) {
         this.db.run('UPDATE accounts SET admin=? WHERE number=?', [isAdmin, phoneNumber])
     }
+    listUsers() {
+        return this.db.query("SELECT number FROM accounts")
+    }
 
 }
 
