@@ -2,7 +2,7 @@ const Whatsapp = require("./whatsapp/whatsapp.js")
 const SnowDB = require("./db/snow_db.js")
 const Router = require("./router.js")
 const createLogger = require("./helpers/logger.js");
-const appConfig = require('./config');
+const appConfig = require('./config/config');
 
 class Snow {
     constructor(config) {

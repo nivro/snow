@@ -1,7 +1,7 @@
 const Authentication = require("./modules/authentiation/authentication")
 const Admin = require("./modules/admin/admin")
+const AI = require('./modules/ai/ai')
 const createLogger = require('./helpers/logger')
-const command = require("nodemon/lib/config/command")
 
 class Router {
     constructor(config, db) {
@@ -12,6 +12,7 @@ class Router {
 
         this.modules = {
             admin: new Admin(this.authentication),
+            ai: new AI()
         }
     }
 
