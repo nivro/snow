@@ -9,10 +9,9 @@ class Router {
         this.config = config
         this.db = db
         this.authentication = new Authentication(db)
-
         this.modules = {
             admin: new Admin(this.authentication),
-            ai: new AI()
+            ai: new AI(this.config.ai)
         }
     }
 

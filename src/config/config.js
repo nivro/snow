@@ -16,8 +16,12 @@ module.exports = {
         path: 'db/db.db'
     },
     modules: {
-        authentication: {
-
+        authentication: {},
+        ai: {
+            image: {
+                model: "dall-e-3",
+                size: "1024x1024"
+            }
         }
     }
 };

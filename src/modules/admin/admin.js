@@ -27,7 +27,7 @@ help\n
         return super.handle(message)
     }
 
-    createUser(phoneNumber) {
+    async createUser(phoneNumber) {
         if (this.authentication.isUserExists(phoneNumber)) {
             return `${phoneNumber} already exists`
         }
@@ -35,14 +35,14 @@ help\n
         this.authentication.createUser(phoneNumber)
         return "user created"
     }
-    deleteUser(phoneNumber) {
+    async deleteUser(phoneNumber) {
         if (!this.authentication.isUserExists(phoneNumber)) {
             return `${phoneNumber} isn't exists`
         }
         this.authentication.deleteUser(phoneNumber)
         return "user deleted"
     }
-    addAdmin(phoneNumber) {
+    async addAdmin(phoneNumber) {
         if (!this.authentication.isUserExists(phoneNumber)) {
             return `${phoneNumber} isn't exists`
         }
@@ -50,7 +50,7 @@ help\n
         this.authentication.setAdminLevel(phoneNumber, 1)
         return 'admin added'
     }
-    removeAdmin(phoneNumber) {
+    async removeAdmin(phoneNumber) {
         if (!this.authentication.isUserExists(phoneNumber)) {
             return `${phoneNumber} isn't exists`
         }

@@ -1,3 +1,4 @@
+const { MessageMedia } = require("whatsapp-web.js");
 const Whatsapp = require("./whatsapp/whatsapp.js")
 const SnowDB = require("./db/snow_db.js")
 const Router = require("./router.js")
@@ -19,9 +20,14 @@ class Snow {
         });
     }
     async handle_maessage(message) {
-        var response = this.router.handle(message)
-        var response_message = `Snow\n\n${response}`
-        this.whatsapp.send_message(message.from, response_message)
+        var response = await this.router.handle(message)
+        if (response instanceof MessageMedia) {
+            this.whatsapp.send_message(message.from, response)
+        } else {
+            var response_message = `Snow\n\n${response}`
+            this.whatsapp.send_message(message.from, response_message)
+        }
+
     }
 }
 
