@@ -12,14 +12,14 @@ jobs:
     name: Run Linter
     runs-on: ubuntu-latest
 
-    steps:
+    steps: # Correctly indented under the "lint" job
       - name: Checkout code
         uses: actions/checkout@v3
       
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with: 
-          node-version: 23
+          node-version: 20 # Replace with your required Node.js version
       
       - name: Install dependencies
         run: npm ci
