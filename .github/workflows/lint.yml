@@ -26,3 +26,6 @@ jobs:
 
       - name: Run Linter
         uses: github/super-linter@v3
+        env:
+          DEFAULT_BRANCH: main # Replace with your default branch if different
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Required for access
