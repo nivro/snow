@@ -20,8 +20,5 @@
     "snow": "file:",
     "whatsapp-web.js": "^1.26.0",
     "winston": "^3.17.0"
-  },
-  "devDependencies": {
-    "eslint": "^9.15.0"
   }
 }
