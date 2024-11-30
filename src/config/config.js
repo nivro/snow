@@ -1,3 +1,4 @@
+const process = require('process');
 module.exports = {
     logger: {
         level: process.env.LOG_LEVEL || 'info',

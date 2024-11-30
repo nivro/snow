@@ -6,3 +6,4 @@ logs/
 !*/db/
 node_modules/
 .env
+eslint.config.mjs

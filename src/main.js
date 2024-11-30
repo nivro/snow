@@ -32,7 +32,7 @@ class Snow {
 }
 
 function main() {
-    var snow = new Snow(appConfig)
+    new Snow(appConfig)
 }
 
 main()

@@ -1,3 +1,4 @@
+const process = require('process');
 const BaseModule = require('../base/base')
 const { MessageMedia } = require("whatsapp-web.js");
 const fetch = require("node-fetch");
